@@ -14,6 +14,7 @@
 		71E0B6B3233A454F00F498A3 /* Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E0B6B1233A454F00F498A3 /* Calculator.xcdatamodeld */; };
 		71E0B6B5233A455000F498A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71E0B6B4233A455000F498A3 /* Assets.xcassets */; };
 		71E0B6B8233A455000F498A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E0B6B6233A455000F498A3 /* LaunchScreen.storyboard */; };
+		71E0B6C0233B7A3C00F498A3 /* CalculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E0B6BF233B7A3C00F498A3 /* CalculatorLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		71E0B6B4233A455000F498A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71E0B6B7233A455000F498A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71E0B6B9233A455000F498A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71E0B6BF233B7A3C00F498A3 /* CalculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,39 @@
 			children = (
 				71E0B6A8233A454F00F498A3 /* AppDelegate.swift */,
 				71E0B6AA233A454F00F498A3 /* SceneDelegate.swift */,
-				71E0B6AC233A454F00F498A3 /* ViewController.swift */,
-				71E0B6AE233A454F00F498A3 /* Main.storyboard */,
+				71E0B6C2233B7A8B00F498A3 /* Controller */,
+				71E0B6C1233B7A7100F498A3 /* Model */,
+				71E0B6C3233B7AA200F498A3 /* View */,
 				71E0B6B4233A455000F498A3 /* Assets.xcassets */,
 				71E0B6B6233A455000F498A3 /* LaunchScreen.storyboard */,
 				71E0B6B9233A455000F498A3 /* Info.plist */,
 				71E0B6B1233A454F00F498A3 /* Calculator.xcdatamodeld */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		71E0B6C1233B7A7100F498A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71E0B6BF233B7A3C00F498A3 /* CalculatorLogic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71E0B6C2233B7A8B00F498A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				71E0B6AC233A454F00F498A3 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		71E0B6C3233B7AA200F498A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71E0B6AE233A454F00F498A3 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +170,7 @@
 			files = (
 				71E0B6AD233A454F00F498A3 /* ViewController.swift in Sources */,
 				71E0B6B3233A454F00F498A3 /* Calculator.xcdatamodeld in Sources */,
+				71E0B6C0233B7A3C00F498A3 /* CalculatorLogic.swift in Sources */,
 				71E0B6A9233A454F00F498A3 /* AppDelegate.swift in Sources */,
 				71E0B6AB233A454F00F498A3 /* SceneDelegate.swift in Sources */,
 			);
