@@ -10,28 +10,33 @@ import Foundation
 
 struct CalculatorLogic {
     
-    var number: Double 
+    private var number: Double?
+    
+    mutating func setNumber(_ number: Double) {
+        self.number = number
+    }
     
     func calculate(symbol: String) -> Double? {
-    
-        switch(symbol) {
-        case "+/-":
-            return number * -1
-        case "C":
-            return 0
-        case "%":
-            return number / 100
-        default:
-            return nil
+        if let n = number {
+            switch(symbol) {
+            case "+/-":
+                return n * -1
+            case "C":
+                return 0
+            case "%":
+                return n / 100
+            default:
+                return nil
+            }
         }
-//        if symbol == "+/-" {
-//            return number * -1
-//        } else if symbol == "C" {
-//            return 0
-//        } else if symbol == "%" {
-//            return number / 100
-//        }
-//        return nil
+        //        if symbol == "+/-" {
+        //            return number * -1
+        //        } else if symbol == "C" {
+        //            return 0
+        //        } else if symbol == "%" {
+        //            return number / 100
+        //        }
+        return nil
     }
     
 }
