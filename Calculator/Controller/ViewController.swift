@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
+    
     private var isFinishedTyping = true
     private var displayValue: Double {
         get {
@@ -35,12 +36,11 @@ class ViewController: UIViewController {
         calculator.setNumber(displayValue)
         if let calcMethod = sender.currentTitle {
             
-            guard let result = calculator.calculate(symbol: calcMethod) else {
+            guard let result = calculator.calculate(symbol: CalculatorFunction(rawValue: calcMethod) ?? .unknown) else {
                 fatalError("The result of the calculation is nil")
             }
             displayValue = result
         }
-        
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
