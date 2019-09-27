@@ -12,8 +12,11 @@ enum CalculatorFunction: String {
     case plusMinus = "+/-"
     case clear = "C"
     case percentage = "%"
-    
-    //case minus = "-"
+    case addition = "+"
+    case subtraction = "-"
+    case multiplication = "x"
+    case division = "/"
+    case result = "="
     
     case unknown = "?"
 }
@@ -21,12 +24,13 @@ enum CalculatorFunction: String {
 struct CalculatorLogic {
     
     private var number: Double?
+    private var intermediateCalculation: (n1: Double, operation: CalculatorFunction)?
     
     mutating func setNumber(_ number: Double) {
         self.number = number
     }
     
-    func calculate(symbol: CalculatorFunction) -> Double? {
+    mutating func calculate(symbol: CalculatorFunction) -> Double? {
         guard let n = number else { return nil }
         
         switch symbol {
@@ -36,34 +40,29 @@ struct CalculatorLogic {
             return n / 100
         case .plusMinus:
             return n * -1
-//        case .minus:
-//            return n - 1
-        case .unknown:
-            return nil
+        case .result:
+            return performTwoNumberCalculation(n2: n)
+        default:
+            intermediateCalculation = (n1: n, operation: symbol)
         }
+        return nil
     }
     
-//    func calculate(symbol: String) -> Double? {
-//        if let n = number {
-//            switch(symbol) {
-//            case "+/-":
-//                return n * -1
-//            case "C":
-//                return 0
-//            case "%":
-//                return n / 100
-//            default:
-//                return nil
-//            }
-//        }
-//        //        if symbol == "+/-" {
-//        //            return number * -1
-//        //        } else if symbol == "C" {
-//        //            return 0
-//        //        } else if symbol == "%" {
-//        //            return number / 100
-//        //        }
-//        return nil
-//    }
-    
+    private func performTwoNumberCalculation(n2: Double) -> Double? {
+        if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.operation {
+            switch operation {
+            case .addition:
+                return n1 + n2
+            case .subtraction:
+                return n1 - n2
+            case .multiplication:
+                return n1 * n2
+            case .division:
+                return n1 / n2
+            default:
+                fatalError("The operation passed in doesn't match any of the cases.")
+            }
+        }
+        return nil
+    }
 }
