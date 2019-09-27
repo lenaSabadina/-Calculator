@@ -8,6 +8,12 @@
 
 import UIKit
 
+private extension Double {
+    var intValue: String {
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(format: "%g", self)
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
@@ -21,7 +27,7 @@ class ViewController: UIViewController {
             return number
         }
         set {
-            displayLabel.text = String(newValue)
+            displayLabel.text = String(newValue.intValue)
         }
     }
     
